@@ -1,0 +1,30 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    opendatahub.io/notebook-image-desc: >-
+      Jupyter notebook image with minimal dependency set to start experimenting
+      with Jupyter environment using Puthon 3.9.
+    opendatahub.io/notebook-image-name: Minimal Python 3.9
+    opendatahub.io/notebook-image-url: 'https://github.com/pmalan-rh/odh_jupyter_notebook_minimal-python39'
+  resourceVersion: '849488'
+  name: s2i-spark-minimal-notebook-py39
+  namespace: opendatahub
+  labels:
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: jupyter-minimal-py39
+      annotations:
+        openshift.io/imported-from: quay.io/odh-jupyterhub/s2i-spark-minimal-notebook
+      from:
+        kind: DockerImage
+        name: 'quay.io/psmalan/s2i-minimal-notebook-py39:1.0'
+    
+      importPolicy: {}
+      referencePolicy:
+        type: Source
