@@ -1,4 +1,4 @@
-# ODH s2i Jupyter Notebook Minimal Python 3.0
+# ODH s2i Jupyter Notebook Minimal Python 3.9
 
 
 ## 1. Build Image
