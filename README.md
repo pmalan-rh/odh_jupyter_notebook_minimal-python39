@@ -14,4 +14,4 @@ Build the image:
   
  ## 2. Create image stream on Openshift in the ODH project's name space.
  
- Use image stream sample, replacing your image with above created image. The magic happens in the annotations.
+ Use image stream sample, replacing your image with above created image. The magic happens in the annotations, spefically opendatahub.io/notebook-image tags, which will be used to display the information when starting a notebook server in Jupyter Hub.
